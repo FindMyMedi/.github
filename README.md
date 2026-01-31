@@ -20,7 +20,13 @@ FindMyMedi aims to deliver an enterprise-grade platform powered by modern micros
 - Pharmacy integration and search  
 - Secure user authentication and authorization  
 - Modular and scalable microservice ecosystem  
-- Centralized API governance and management  
+- Centralized API governance and management
+
+## 📦 Repositories
+- **Main Platform (Monorepo):** https://github.com/FindMyMedi/findmymedi  
+- **Frontend Application:** https://github.com/FindMyMedi/findmymedi-frontend  
+- **Auth Microservice:** https://github.com/FindMyMedi/findmymedi-auth-service  
+
 
 ## 🛠️ Tech Stack
 - Java, Spring Boot, Microservices  

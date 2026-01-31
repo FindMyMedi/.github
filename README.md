@@ -1,30 +1,36 @@
 # 🚑 FindMyMedi
 
-FindMyMedi is a microservice-based healthcare platform designed to improve medicine availability and pharmacy connectivity through secure APIs, intelligent search, and modern web technologies.
+FindMyMedi is a microservice-based healthcare platform designed to improve medicine availability and pharmacy connectivity through secure APIs, intelligent search, and modern enterprise technologies.
 
 ## 🌍 Vision
-To build a unified digital ecosystem that connects patients, pharmacies, and healthcare providers with real-time medicine access.
+To build a unified digital healthcare ecosystem that connects patients, pharmacies, and healthcare providers with real-time medicine access.
+
+FindMyMedi aims to deliver an enterprise-grade platform powered by modern microservices and API management solutions.
 
 ## 🏗️ Project Architecture
 - Microservice-based backend (Spring Boot)
-- API Gateway + Secure Authentication (JWT)
-- Modern Frontend (Angular)
-- Scalable database integration (SQL + NoSQL)
+- API Management & Gateway Layer (WSO2 API Manager)
+- Secure Authentication & Identity Management (WSO2 Identity Server + JWT/OAuth2)
+- Enterprise Service Integration (WSO2 Micro Integrator)
+- Modern Frontend Application (Angular)
+- Scalable Database Integration (PostgreSQL)
 
 ## 🚀 Key Features
-- Medicine availability tracking  
-- Pharmacy integration & search  
-- Secure user authentication  
-- Modular microservice ecosystem  
+- Real-time medicine availability tracking  
+- Pharmacy integration and search  
+- Secure user authentication and authorization  
+- Modular and scalable microservice ecosystem  
+- Centralized API governance and management  
 
 ## 🛠️ Tech Stack
 - Java, Spring Boot, Microservices  
+- WSO2 API Manager, Identity Server, Micro Integrator  
 - Angular, TypeScript  
 - PostgreSQL / MongoDB  
 - Docker, GitHub Actions (planned)
 
-## 📌 Status
-Currently under active development as a scalable healthcare platform.
+## 📌 Current Status
+FindMyMedi is currently under active development as a scalable healthcare and pharmacy integration platform.
 
 ---
 

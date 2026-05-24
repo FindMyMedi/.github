@@ -1,67 +1,83 @@
-# 🚑 FindMyMedi
+# FindMyMedi
 
-FindMyMedi is a microservice-based healthcare platform designed to improve real-time medicine availability and enable secure pharmacy integration through enterprise-grade APIs and modern cloud-native architecture.
+**Real-time medicine availability for Sri Lanka.**
 
----
-
-## 🌍 Vision
-To build a unified digital healthcare ecosystem that connects patients, pharmacies, and healthcare providers with accurate, real-time medicine access.
-
-FindMyMedi aims to deliver an enterprise-ready platform powered by microservices, API governance, and identity management solutions.
+Patients waste hours visiting multiple pharmacies looking for medicines. Pharmacies have no digital presence. FindMyMedi fixes both.
 
 ---
 
-## 🏗️ Project Architecture
-- Microservice-based backend (Spring Boot)
-- Service Discovery & Registration (Spring Cloud Eureka)
-- Secure Authentication & Identity Management (WSO2 Identity Server + OAuth2/OIDC + JWT)
-- API Management & Gateway Layer (WSO2 API Manager – planned integration)
-- Enterprise Service Integration (WSO2 Micro Integrator – planned)
-- Modern Frontend Application (Angular)
-- Scalable Database Integration (PostgreSQL)
+## What We're Building
+
+A platform that connects patients with nearby pharmacies that actually have their medicines in stock — right now.
+
+**For patients:** Search for a medicine, see which pharmacies near you have it, submit a prescription list, and get a WhatsApp payment link for cash pickup. No more pharmacy hopping.
+
+**For pharmacies:** A simple staff app to receive prescription requests, respond per item, and confirm orders — no tech expertise required.
 
 ---
 
-## 🚀 Key Features
-- Real-time medicine availability tracking  
-- Secure pharmacy onboarding and integration  
-- OAuth2/OpenID Connect authentication workflows  
-- Modular microservice ecosystem with independent services  
-- Centralized documentation and architecture diagrams  
+## How It Works
+
+```
+Patient searches medicine
+        ↓
+Nearby pharmacies with stock appear on a map
+        ↓
+Patient submits prescription list
+        ↓
+Each pharmacy responds item-by-item
+        ↓
+WhatsApp bill link sent → patient picks up and pays cash
+```
 
 ---
 
-## 📦 Repositories
+## Tech Stack
 
-### Core Platform
-- **Main Platform (Monorepo):** https://github.com/FindMyMedi/findmymedi  
+| Layer | Technology |
+|---|---|
+| Backend | Go 1.22 · Gin · GORM · 5 microservices |
+| Mobile | Flutter 3.x (patient app + pharmacy staff app) |
+| Web | React 18 · TypeScript · Vite · Tailwind CSS |
+| Database | PostgreSQL 16 + PostGIS · Redis 7 |
+| Notifications | Firebase FCM · WhatsApp Business API |
+| Storage | Cloudflare R2 |
+| Infrastructure | Docker · Traefik · DigitalOcean |
 
-### Frontend
-- **Frontend Application:** https://github.com/FindMyMedi/findmymedi-frontend  
-
-### Backend Microservices
-- **Auth Service:** https://github.com/FindMyMedi/findmymedi-auth-service  
-- **Medicine Inventory Service:** https://github.com/FindMyMedi/findmymedi-medicine-service  
-- **Pharmacy Service:** https://github.com/FindMyMedi/findmymedi-pharmacy-service  
-- **Discovery Service:** https://github.com/FindMyMedi/findmymedi-discovery-service  
-
-### Documentation
-- **Docs & Diagrams:** https://github.com/FindMyMedi/findmymedi-docs  
+Android-first. Sri Lanka-first.
 
 ---
 
-## 🛠️ Tech Stack
-- Java, Spring Boot, Spring Cloud Microservices  
-- WSO2 Identity Server (OAuth2/OIDC, JWT)  
-- Angular, TypeScript  
-- PostgreSQL  
-- Docker (planned), GitHub Actions (planned)
+## Repositories
+
+| Repo | Description |
+|---|---|
+| `backend` | Go microservices — search, pharmacy, order, notification, auth |
+| `mobile` | Flutter apps for patients and pharmacy staff |
+| `web` | React dashboard for pharmacy owners and admin |
+| `infra` | Docker Compose, Traefik config, deployment scripts |
 
 ---
 
-## 📌 Current Status
-FindMyMedi is under active development as a scalable healthcare and pharmacy integration platform, following enterprise microservice and API management practices.
+## Status
+
+> **In active development — MVP in progress**
+
+- [x] Architecture and folder structure finalized
+- [x] API contracts designed
+- [ ] Core backend services
+- [ ] Flutter mobile apps
+- [ ] React web dashboard
+- [ ] Beta launch with pilot pharmacies
 
 ---
 
-📫 Contact: **findmymedi@gmail.com**
+## The Problem We Solve
+
+Sri Lanka's pharmacy sector is fragmented and offline. Patients with chronic conditions — diabetes, hypertension, thyroid — refill prescriptions every month and often cannot find all their medicines at a single pharmacy. There is no way to check stock before visiting.
+
+FindMyMedi brings real-time inventory visibility to pharmacies of all sizes, starting with a free tier so even small, independent pharmacies can participate.
+
+---
+
+*Built in Sri Lanka. For Sri Lanka.*

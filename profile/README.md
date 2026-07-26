@@ -1,83 +1,142 @@
 # FindMyMedi
 
-**Real-time medicine availability for Sri Lanka.**
+**A trilingual medicine-discovery and pharmacy-operations platform built for Sri Lanka.**
 
-Patients waste hours visiting multiple pharmacies looking for medicines. Pharmacies have no digital presence. FindMyMedi fixes both.
+[View Live MVP](https://findmymedi-web.vercel.app/) · [Developer Portfolio](https://bhashana99.vercel.app/)
+
+> The live demo uses free-tier infrastructure and may take a short time to start after inactivity.
 
 ---
 
-## What We're Building
+## The Problem
 
-A platform that connects patients with nearby pharmacies that actually have their medicines in stock — right now.
+Finding a prescribed medicine in Sri Lanka often means calling or visiting multiple pharmacies without knowing whether the required items are available.
 
-**For patients:** Search for a medicine, see which pharmacies near you have it, submit a prescription list, and get a WhatsApp payment link for cash pickup. No more pharmacy hopping.
+At the same time, many independent pharmacies lack affordable digital tools for publishing inventory, receiving reservations, and managing daily operations.
 
-**For pharmacies:** A simple staff app to receive prescription requests, respond per item, and confirm orders — no tech expertise required.
+FindMyMedi connects both sides through location-aware medicine discovery and practical pharmacy-management workflows.
+
+---
+
+## Product Capabilities
+
+### For Patients
+
+- Search medicines using multilingual names and common aliases
+- Scan medicine labels using on-device OCR
+- Discover nearby pharmacies using location-based search
+- Check medicine availability before travelling
+- Submit prescription lists and reserve medicines
+- Receive reservation and order updates
+
+### For Pharmacies
+
+- Manage medicine catalogues and inventory
+- Receive and review reservation requests
+- Respond to requested medicines item by item
+- Manage orders, billing, and point-of-sale operations
+- Notify patients through mobile and WhatsApp workflows
+- Make available inventory discoverable to nearby patients
 
 ---
 
 ## How It Works
 
-```
-Patient searches medicine
-        ↓
-Nearby pharmacies with stock appear on a map
-        ↓
-Patient submits prescription list
-        ↓
-Each pharmacy responds item-by-item
-        ↓
-WhatsApp bill link sent → patient picks up and pays cash
+```text
+Patient searches for a medicine
+                ↓
+Multilingual and fuzzy search identifies matching products
+                ↓
+PostGIS finds nearby pharmacies with available inventory
+                ↓
+Patient submits a reservation or prescription request
+                ↓
+Pharmacy reviews and responds to each requested item
+                ↓
+Patient receives confirmation and collects the order
 ```
 
 ---
 
-## Tech Stack
+## Technical Highlights
 
-| Layer | Technology |
+- **Microservices:** Five Go services built with Gin and GORM
+- **Geospatial discovery:** PostgreSQL and PostGIS proximity search
+- **Multilingual search:** PostgreSQL full-text search, `pg_trgm`, and a curated alias dictionary
+- **Medicine-label scanning:** On-device OCR using Google ML Kit
+- **Mobile applications:** Flutter apps for patients and pharmacy staff
+- **Web platform:** React, TypeScript, Vite, and Tailwind CSS
+- **Data and caching:** PostgreSQL, PostGIS, and Redis
+- **Notifications:** Firebase Cloud Messaging and WhatsApp Business API
+- **Infrastructure:** Docker, Traefik, DigitalOcean, and Cloudflare R2
+
+---
+
+## Architecture
+
+```mermaid
+flowchart LR
+    Patient["Patient App<br/>Flutter"]
+    Staff["Pharmacy Staff App<br/>Flutter"]
+    Web["Owner and Admin Web<br/>React + TypeScript"]
+
+    Patient --> Gateway["API Gateway<br/>Traefik"]
+    Staff --> Gateway
+    Web --> Gateway
+
+    Gateway --> Services["Five Go Microservices<br/>Gin + GORM"]
+
+    Services --> PostgreSQL[("PostgreSQL + PostGIS")]
+    Services --> Redis[("Redis")]
+    Services --> Storage["Cloudflare R2"]
+    Services --> Notifications["FCM + WhatsApp"]
+```
+
+---
+
+## Technology Stack
+
+| Area | Technologies |
 |---|---|
-| Backend | Go 1.22 · Gin · GORM · 5 microservices |
-| Mobile | Flutter 3.x (patient app + pharmacy staff app) |
-| Web | React 18 · TypeScript · Vite · Tailwind CSS |
-| Database | PostgreSQL 16 + PostGIS · Redis 7 |
-| Notifications | Firebase FCM · WhatsApp Business API |
+| Backend | Go 1.22, Gin, GORM, REST APIs, Microservices |
+| Mobile | Flutter 3.x, Google ML Kit |
+| Web | React 18, TypeScript, Vite, Tailwind CSS |
+| Database | PostgreSQL 16, PostGIS, Redis 7 |
+| Search | PostgreSQL full-text search, `pg_trgm`, multilingual aliases |
+| Notifications | Firebase FCM, WhatsApp Business API |
 | Storage | Cloudflare R2 |
-| Infrastructure | Docker · Traefik · DigitalOcean |
-
-Android-first. Sri Lanka-first.
+| Infrastructure | Docker, Traefik, DigitalOcean |
 
 ---
 
-## Repositories
+## Current Status
 
-| Repo | Description |
+| Component | Status |
 |---|---|
-| `backend` | Go microservices — search, pharmacy, order, notification, auth |
-| `mobile` | Flutter apps for patients and pharmacy staff |
-| `web` | React dashboard for pharmacy owners and admin |
-| `infra` | Docker Compose, Traefik config, deployment scripts |
+| Live web MVP | Available |
+| Go backend services | Active development |
+| Pharmacy web platform | Active development |
+| Flutter mobile applications | Active development |
+| Pilot pharmacy onboarding | Planned |
+
+FindMyMedi is being developed iteratively, with the current MVP focused on validating medicine discovery, pharmacy search, reservations, and pharmacy-operation workflows.
 
 ---
 
-## Status
+## Source-Code Availability
 
-> **In active development — MVP in progress**
+FindMyMedi is organized across separate backend, mobile, web, and infrastructure repositories.
 
-- [x] Architecture and folder structure finalized
-- [x] API contracts designed
-- [ ] Core backend services
-- [ ] Flutter mobile apps
-- [ ] React web dashboard
-- [ ] Beta launch with pilot pharmacies
+These repositories are currently private while the platform is in active product development. This organization profile documents the public product vision, architecture, capabilities, and technology stack.
 
 ---
 
-## The Problem We Solve
+## Project Ownership
 
-Sri Lanka's pharmacy sector is fragmented and offline. Patients with chronic conditions — diabetes, hypertension, thyroid — refill prescriptions every month and often cannot find all their medicines at a single pharmacy. There is no way to check stock before visiting.
+FindMyMedi is independently designed and developed by **Bhashana Chamodya**, a Software Engineer working with Java, Spring Boot, Go, React, Flutter, microservices, and enterprise software systems.
 
-FindMyMedi brings real-time inventory visibility to pharmacies of all sizes, starting with a free tier so even small, independent pharmacies can participate.
+[GitHub](https://github.com/bhashana99/) · [LinkedIn](https://www.linkedin.com/in/bhashana-chamodya/) · [Portfolio](https://bhashana99.vercel.app/) · [Email](mailto:bhashana.ai@gmail.com)
 
 ---
 
-*Built in Sri Lanka. For Sri Lanka.*
+**Built in Sri Lanka, for Sri Lanka.**
